@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "autotxt",
+  "version": "${version}",
+
+  "name": "AutoTextKey",
+  "description": "A simple mod that adds a hotkey to type 'gg' for you.",
+  "authors": [
+    "mrsocksandsandals"
+  ],
+  "contact": {
+    "sources": "https://github.com/mrsocksandsandals/AutoTextKey"
+  },
+
+  "license": "MIT",
+  "icon": "assets/autotxt/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "io.github.mrsocksandsandals.AutoTextKeyClient"
+    ]
+  },
+
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  }
+}
