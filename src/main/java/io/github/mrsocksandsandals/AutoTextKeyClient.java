@@ -14,18 +14,22 @@ public class AutoTextKeyClient implements ClientModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("autotxt");
 
 	// Get the message we're sending to chat.
-	private static final String AUTO_TEXT_MESSAGE = "gg";
+	private static AutoTextKeyConfig cfg = new AutoTextKeyConfig();
 
 	@Override
 	public void onInitializeClient() {
 		// Print an init message.
 		LOGGER.info("Initializing AutoTextKey...");
 
+		// Set the message.
+		cfg.loadConfig();
+		String autoTextMessage = cfg.getText();
+
 		// Register our keybinding.
 		LOGGER.info("Registering keybinding...");
 		ClientTickEvents.END_CLIENT_TICK.register(c -> {
 			while (autoTextKey.wasPressed()) {
-				MinecraftClient.getInstance().player.sendChatMessage(AUTO_TEXT_MESSAGE);
+				MinecraftClient.getInstance().player.sendChatMessage(autoTextMessage);
 			}
 		});
 	}
