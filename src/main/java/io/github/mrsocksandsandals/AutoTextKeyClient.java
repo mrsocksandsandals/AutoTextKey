@@ -25,11 +25,14 @@ public class AutoTextKeyClient implements ClientModInitializer {
 		cfg.loadConfig();
 		String autoTextMessage = cfg.getText();
 
+		// Get the Minecraft instance.
+		MinecraftClient client = MinecraftClient.getInstance();
+
 		// Register our keybinding.
 		LOGGER.info("Registering keybinding...");
 		ClientTickEvents.END_CLIENT_TICK.register(c -> {
 			while (autoTextKey.wasPressed()) {
-				MinecraftClient.getInstance().player.sendChatMessage(autoTextMessage);
+				client.player.sendChatMessage(autoTextMessage);
 			}
 		});
 	}
