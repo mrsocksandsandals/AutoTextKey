@@ -8,10 +8,10 @@ into your mods folder. Afterwards, launch into Minecraft and press the
 
 ### Configuration
 Open a file named `autotxt.properties` in a text editor. From there,
-add a line that says `autoTextString=$text`, where `$text` is your
-message of choice. Save the file to `$MINECRAFT_FOLDER/config/autotxt.properties`.
+add a line that says `messages=$text`, where `$text` are your
+messages of choice, separated by a semicolon. Save the file to `$MINECRAFT_FOLDER/config/autotxt.properties`.
 Then, restart Minecraft, and the next time you use the text key, you should send
-the message you set.
+the message you set. You may also freely change all three text keybindings.
 
 ### Problems?
 Open up an issue!

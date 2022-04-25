@@ -23,23 +23,43 @@ public class AutoTextKeyClient implements ClientModInitializer {
 
 		// Set the message.
 		cfg.loadConfig();
-		String autoTextMessage = cfg.getText();
+		String[] messages = cfg.getText();
 
 		// Get the Minecraft instance.
-		MinecraftClient client = MinecraftClient.getInstance();
+		final MinecraftClient CLIENT = MinecraftClient.getInstance();
 
 		// Register our keybinding.
 		LOGGER.info("Registering keybinding...");
 		ClientTickEvents.END_CLIENT_TICK.register(c -> {
-			while (autoTextKey.wasPressed()) {
-				client.player.sendChatMessage(autoTextMessage);
+			while (autoTextKey0.wasPressed()) {
+				CLIENT.player.sendChatMessage(messages[0]);
+			}
+
+			while (autoTextKey1.wasPressed()) {
+				CLIENT.player.sendChatMessage(messages[1]);
+			}
+
+			while (autoTextKey2.wasPressed()) {
+				CLIENT.player.sendChatMessage(messages[2]);
 			}
 		});
 	}
 
-	private KeyBinding autoTextKey = new KeyBinding(
-		"key.autotxt.autotextkey",
+	private KeyBinding autoTextKey0 = new KeyBinding(
+		"key.autotxt.key0",
 		GLFW.GLFW_KEY_DELETE,
+		"category.autotxt"
+	);
+
+	private KeyBinding autoTextKey1 = new KeyBinding(
+		"key.autotxt.key1",
+		GLFW.GLFW_KEY_PAGE_UP,
+		"category.autotxt"
+	);
+
+	private KeyBinding autoTextKey2 = new KeyBinding(
+		"key.autotxt.key2",
+		GLFW.GLFW_KEY_PAGE_DOWN,
 		"category.autotxt"
 	);
 }

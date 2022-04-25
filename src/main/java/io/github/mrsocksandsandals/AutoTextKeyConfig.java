@@ -15,7 +15,7 @@ public class AutoTextKeyConfig {
         Path configPath = FabricLoader.getInstance().getConfigDir().resolve("autotxt.properties");
         if (!configPath.toFile().exists()) {
             // File does not exist, set the auto text key string to the default.
-            autoTextString = DEFAULT_TEXT;            
+            messages_unparsed = DEFAULT_MESSAGES;            
         } else {
             // File exists, read in the properties.
             Properties properties = new Properties();
@@ -27,8 +27,8 @@ public class AutoTextKeyConfig {
             } catch (FileNotFoundException err) {
                 // Fall back to the default (even though we shouldn't be here)
                 AutoTextKeyClient.LOGGER.warn("Failed to find config file: " + err);
-                AutoTextKeyClient.LOGGER.warn("Falling back to default (\"" + DEFAULT_TEXT + "\")");
-                autoTextString = DEFAULT_TEXT;
+                AutoTextKeyClient.LOGGER.warn("Falling back to default (\"" + DEFAULT_MESSAGES + "\")");
+                messages_unparsed = DEFAULT_MESSAGES;
                 return;
             } catch (IOException err) {
                 AutoTextKeyClient.LOGGER.warn("An exception occurred: " + err);
@@ -36,21 +36,28 @@ public class AutoTextKeyConfig {
             }
 
             // Actually configure the string.
-            if (properties.containsKey("autoTextString")) {
+            if (properties.containsKey("messages")) {
                 // The key exists, continue...
-                autoTextString = properties.getProperty("autoTextString", DEFAULT_TEXT);
+                messages_unparsed = properties.getProperty("messages", DEFAULT_MESSAGES);
             } else {
-                AutoTextKeyClient.LOGGER.warn("The config file exists, but the \"autoTextString\" key does not.");
-                AutoTextKeyClient.LOGGER.warn("Defaulting to \"" + DEFAULT_TEXT + "\".");
-                autoTextString = DEFAULT_TEXT;
+                AutoTextKeyClient.LOGGER.warn("The config file exists, but the \"messages\" key does not.");
+                AutoTextKeyClient.LOGGER.warn("Defaulting to \"" + DEFAULT_MESSAGES + "\".");
+                messages_unparsed = DEFAULT_MESSAGES;
             }
         }
     }
 
-    public String getText() {
-        return autoTextString;
+    // Parses the messages config string, then returns the messages themselves.
+    public String[] getText() {
+        // declare variable.
+        String[] messages;
+
+        // Use the split(String) method to get the messages array.
+        messages = messages_unparsed.split(";");
+        return messages;
     }
 
-    private static String autoTextString;
-    private final String DEFAULT_TEXT = "gg";
+    // Variables for the entire class.
+    private static String messages_unparsed;
+    private final String DEFAULT_MESSAGES = "gg;gf;gl"; // good game, good fight, good luck
 }
