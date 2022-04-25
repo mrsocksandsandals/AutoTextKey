@@ -31,15 +31,18 @@ public class AutoTextKeyClient implements ClientModInitializer {
 		// Register our keybinding.
 		LOGGER.info("Registering keybinding...");
 		ClientTickEvents.END_CLIENT_TICK.register(c -> {
-			while (autoTextKey0.wasPressed()) {
+			// Print the first message.
+			if (autoTextKey0.wasPressed()) {
 				CLIENT.player.sendChatMessage(messages[0]);
 			}
 
-			while (autoTextKey1.wasPressed()) {
+			// Print the second message.
+			if (autoTextKey1.wasPressed()) {
 				CLIENT.player.sendChatMessage(messages[1]);
 			}
 
-			while (autoTextKey2.wasPressed()) {
+			// Print the third message.
+			if (autoTextKey2.wasPressed()) {
 				CLIENT.player.sendChatMessage(messages[2]);
 			}
 		});
