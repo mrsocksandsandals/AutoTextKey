@@ -6,6 +6,8 @@ Download the latest `.jar` from the releases page. Then, just drop it
 into your mods folder. Afterwards, launch into Minecraft and press the
 `Delete` key. If you are in a world, it will type `gg` for you.
 
+**This mod requires the Fabric API!**
+
 ### Configuration
 Open a file named `autotxt.properties` in a text editor. From there,
 add a line that says `messages=$text`, where `$text` are your
