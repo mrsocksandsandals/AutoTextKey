@@ -90,18 +90,18 @@ public class AutoTextKeyClient implements ClientModInitializer {
 	private KeyBinding autoTextKey0 = new KeyBinding(
 		"key.autotxt.key0",
 		GLFW.GLFW_KEY_DELETE,
-		"category.autotxt"
+		"key.categories.autotxt"
 	);
 
 	private KeyBinding autoTextKey1 = new KeyBinding(
 		"key.autotxt.key1",
 		GLFW.GLFW_KEY_PAGE_UP,
-		"category.autotxt"
+		"key.categories.autotxt"
 	);
 
 	private KeyBinding autoTextKey2 = new KeyBinding(
 		"key.autotxt.key2",
 		GLFW.GLFW_KEY_PAGE_DOWN,
-		"category.autotxt"
+		"key.categories.autotxt"
 	);
 }
