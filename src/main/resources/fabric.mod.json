@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "autotxt",
-  "version": "0.1.0",
+  "version": "1.0.0",
 
   "name": "AutoTextKey",
   "description": "A simple mod that adds a hotkey to type 'gg' for you.",
