@@ -10,6 +10,7 @@ import java.util.Properties;
 import net.fabricmc.loader.api.FabricLoader;
 
 public class AutoTextKeyConfig {
+    // Loads the configuration from the file, or loads the default config.
     public void loadConfig() {
         // Gets the config file, and loads it.
         Path configPath = FabricLoader.getInstance().getConfigDir().resolve("autotxt.properties");
@@ -52,7 +53,7 @@ public class AutoTextKeyConfig {
         // declare variable.
         String[] messages;
 
-        // Use the split(String) method to get the messages array.
+        // Use the String.split(String) method to get the messages array.
         messages = messages_unparsed.split(";");
         return messages;
     }

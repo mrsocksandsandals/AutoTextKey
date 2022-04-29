@@ -21,6 +21,9 @@ public class AutoTextKeyClient implements ClientModInitializer {
 	private static AutoTextKeyConfig cfg = new AutoTextKeyConfig();
 
 	@Override
+	/* Runs as soon as Minecraft is ready to load mods. This code only runs on the client side,
+	 * and does nothing if installed on the server.
+	*/
 	public void onInitializeClient() {
 		// Print an init message.
 		LOGGER.info("Initializing AutoTextKey...");
