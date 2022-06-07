@@ -6,9 +6,6 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
-import net.minecraft.network.MessageType;
-import net.minecraft.text.LiteralText;
-
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,12 +45,6 @@ public class AutoTextKeyClient implements ClientModInitializer {
 				} catch (ArrayIndexOutOfBoundsException e) {
 					LOGGER.error("messages[0] is unset!");
 					LOGGER.error("not sending...");
-					// Print an error message to the player only.
-					CLIENT.inGameHud.addChatMessage(
-						MessageType.SYSTEM,
-						new LiteralText("You haven't defined the first message!"),
-						CLIENT.player.getUuid()
-					);
 				}
 			}
 
@@ -64,11 +55,6 @@ public class AutoTextKeyClient implements ClientModInitializer {
 				} catch (ArrayIndexOutOfBoundsException e) {
 					LOGGER.error("messages[1] is unset!");
 					LOGGER.error("not sending...");
-					CLIENT.inGameHud.addChatMessage(
-						MessageType.SYSTEM,
-						new LiteralText("You haven't defined the second message!"),
-						CLIENT.player.getUuid()
-					);
 				}
 			}
 
@@ -79,11 +65,6 @@ public class AutoTextKeyClient implements ClientModInitializer {
 				} catch (ArrayIndexOutOfBoundsException e) {
 					LOGGER.error("messages[2] is unset!");
 					LOGGER.error("not sending...");
-					CLIENT.inGameHud.addChatMessage(
-						MessageType.SYSTEM,
-						new LiteralText("You haven't defined the third message!"),
-						CLIENT.player.getUuid()
-					);
 				}
 			}
 		});

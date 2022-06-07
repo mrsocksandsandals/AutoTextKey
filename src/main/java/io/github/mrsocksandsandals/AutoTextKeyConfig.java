@@ -53,8 +53,15 @@ public class AutoTextKeyConfig {
         // declare variable.
         String[] messages;
 
+        
         // Use the String.split(String) method to get the messages array.
         messages = messages_unparsed.split(";");
+        if (messages.length < 3) {
+            // Error handling.
+            AutoTextKeyClient.LOGGER.warn("Not enough messages were specified.");
+            messages_unparsed = DEFAULT_MESSAGES;
+            messages = messages_unparsed.split(";");
+        }
         return messages;
     }
 
